@@ -1,0 +1,145 @@
+/* ==============================
+   DASHBOARD MODERN STYLE
+================================ */
+
+.dashboard-page {
+  background: #f6fbfa;
+  min-height: 100vh;
+}
+
+/* CONTENT WRAPPER */
+.dashboard-content-modern {
+  padding: 22px 26px;
+}
+
+/* TITLE */
+.dashboard-title {
+  margin-bottom: 18px;
+}
+
+.dashboard-title h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 900;
+  color: #0b6b68;
+}
+
+.dashboard-title p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* GRID */
+.dashboard-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+/* CARD */
+.dashboard-stat-card {
+  background: white;
+  padding: 22px 22px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.05);
+  transition: 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* LEFT ACCENT */
+.dashboard-stat-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 6px;
+  background: linear-gradient(180deg, #0b6b68, #10b981);
+}
+
+/* HOVER */
+.dashboard-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 12px 26px rgba(0, 0, 0, 0.08);
+  border-color: rgba(11, 107, 104, 0.35);
+}
+
+/* NUMBER */
+.stat-number {
+  font-size: 46px;
+  font-weight: 900;
+  color: #0b6b68;
+  margin-bottom: 6px;
+}
+
+/* LABEL */
+.stat-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #475569;
+}
+/* HEADER MODERN */
+.dashboard-header-modern {
+  background: white;
+  padding: 18px 26px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-header-left h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 900;
+  color: #0b6b68;
+}
+
+.dashboard-header-left p {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* SEARCH */
+.dashboard-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dashboard-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f3f4f6;
+  padding: 10px 14px;
+  border-radius: 14px;
+}
+
+.dashboard-search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 13px;
+  width: 200px;
+}
+
+/* NOTIF BUTTON */
+.dashboard-notif-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  background: #0b6b68;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

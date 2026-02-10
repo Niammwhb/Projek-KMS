@@ -1,0 +1,306 @@
+:root {
+  --bg-page: #f6f9fa;
+  --card-bg: #ffffff;
+
+  --accent: #0b6b68;
+  --accent-hover: #085c59;
+
+  --text: #111827;
+  --text-soft: #6b7280;
+
+  --border: #dbe2e8;
+  --border-focus: rgba(11, 107, 104, 0.5);
+
+  --input-bg: #f8fafc;
+  --icon-bg: rgba(11, 107, 104, 0.08);
+}
+
+/* PAGE */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  padding: 20px;
+
+  background: radial-gradient(circle at top, #ffffff, #edf3f3);
+}
+
+/* CARD */
+.login-card {
+  width: 480px;
+  max-width: 95%;
+  padding: 42px 48px;
+
+  background: var(--card-bg);
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+
+  position: relative;
+  overflow: visible;
+
+  /* shadow hitam soft */
+  box-shadow: 0px 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* GLOW HIJAU DI BAWAH CARD */
+.login-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -60px;
+  transform: translateX(-50%);
+
+  width: 85%;
+  height: 80px;
+
+  background: rgba(11, 107, 104, 0.55);
+  filter: blur(38px);
+  border-radius: 50%;
+
+  z-index: -1;
+}
+
+/* HEADER */
+.login-header {
+  text-align: center;
+  margin-bottom: 38px;
+}
+
+.login-header h2 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 0.3px;
+}
+
+.login-header p {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-soft);
+}
+
+/* FORM */
+.login-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+}
+
+/* INPUT WRAPPER */
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 56px;
+
+  border-radius: 14px;
+  overflow: hidden;
+
+  background: var(--input-bg);
+  border: 1.5px solid var(--border);
+
+  transition: all 0.25s ease;
+}
+
+.input-wrapper:hover {
+  border-color: #cbd5e1;
+}
+
+.input-wrapper:focus-within {
+  background: #ffffff;
+  border-color: var(--accent);
+  box-shadow: 0px 0px 0px 4px rgba(11, 107, 104, 0.15);
+}
+
+/* ICON */
+.input-icon {
+  width: 56px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--icon-bg);
+  color: var(--accent);
+  font-size: 18px;
+}
+
+/* INPUT */
+.input-wrapper input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+
+  padding: 0 14px;
+  font-size: 14px;
+  font-weight: 600;
+
+  background: transparent !important;
+  color: var(--text) !important;
+  -webkit-text-fill-color: var(--text) !important;
+}
+
+.input-wrapper input::placeholder {
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+/* TOGGLE PASSWORD */
+.toggle-password {
+  width: 56px;
+  height: 100%;
+  border: none;
+  outline: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--icon-bg) !important;
+  color: var(--accent);
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.toggle-password:hover {
+  background: rgba(11, 107, 104, 0.15) !important;
+}
+
+/* AUTOFILL FIX */
+.input-wrapper input:-webkit-autofill,
+.input-wrapper input:-webkit-autofill:hover,
+.input-wrapper input:-webkit-autofill:focus,
+.input-wrapper input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--input-bg) inset !important;
+  -webkit-text-fill-color: var(--text) !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* EXTRA */
+.login-extra {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 6px;
+  margin-bottom: 18px;
+}
+
+.forgot-password {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* BUTTONS */
+.login-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+/* LOGIN BUTTON */
+.btn-login {
+  flex: 1;
+  height: 52px;
+
+  border: none !important;
+  border-radius: 14px !important;
+
+  background: var(--accent) !important;
+  color: #ffffff !important;
+
+  font-size: 14px !important;
+  font-weight: 800 !important;
+
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+}
+
+.btn-login:hover {
+  background: var(--accent-hover) !important;
+  transform: translateY(-2px);
+  box-shadow: 0px 16px 28px rgba(11, 107, 104, 0.25);
+}
+
+.btn-login:active {
+  transform: scale(0.98);
+}
+
+/* GOOGLE BUTTON */
+.btn-google {
+  flex: 1;
+  height: 52px;
+
+  border-radius: 14px;
+  border: 1.5px solid var(--border);
+
+  background: #ffffff;
+  color: #111827;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-google img {
+  width: 18px;
+  height: 18px;
+}
+
+.btn-google:hover {
+  border-color: var(--accent);
+  background: rgba(11, 107, 104, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* INFO */
+.login-info {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-soft);
+}
+
+.login-info b {
+  color: var(--accent);
+}
+
+/* RESPONSIVE */
+@media (max-width: 650px) {
+  .login-card {
+    padding: 30px 22px;
+  }
+
+  .login-actions {
+    flex-direction: column;
+  }
+}
