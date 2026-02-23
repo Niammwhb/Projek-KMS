@@ -8,7 +8,6 @@ export function KnowledgeProvider({ children }) {
     return saved ? JSON.parse(saved) : [];
   });
 
-  
   useEffect(() => {
     localStorage.setItem("knowledge", JSON.stringify(knowledgeList));
   }, [knowledgeList]);
@@ -20,6 +19,7 @@ export function KnowledgeProvider({ children }) {
       content: data.content,
       category: data.category,
       status: data.status, // draft | published
+      thumbnail: data.thumbnail || null, // ✅ TAMBAH INI
       createdAt: data.createdAt || new Date().toISOString(),
     };
 

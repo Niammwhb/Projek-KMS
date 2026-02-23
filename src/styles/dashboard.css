@@ -1,91 +1,50 @@
 /* ==============================
-   DASHBOARD MODERN STYLE
+   GLOBAL THEME (PROFESSIONAL)
+================================ */
+
+:root {
+  --navy: #0f2854;
+  --navy-dark: #0b1d3f;
+  --blue: #1c4d8d;
+  --accent: #4988c4;
+
+  --bg-main: #f4f7fb; /* soft grey seperti template */
+  --bg-soft: #ffffff;
+
+  --text-dark: #0f2854;
+  --text-muted: rgba(15, 40, 84, 0.6);
+
+  --border-soft: rgba(15, 40, 84, 0.08);
+
+  --shadow-sm: 0 6px 18px rgba(15, 40, 84, 0.06);
+  --shadow-md: 0 12px 28px rgba(15, 40, 84, 0.1);
+
+  --radius: 18px;
+}
+
+/* ==============================
+   DASHBOARD PAGE
 ================================ */
 
 .dashboard-page {
-  background: #f6fbfa;
+  background: var(--bg-main);
   min-height: 100vh;
 }
 
-/* CONTENT WRAPPER */
 .dashboard-content-modern {
-  padding: 22px 26px;
+  padding: 30px 36px;
 }
 
-/* TITLE */
-.dashboard-title {
-  margin-bottom: 18px;
-}
+/* ==============================
+   HEADER MODERN (CONTAINER STYLE)
+================================ */
 
-.dashboard-title h1 {
-  margin: 0;
-  font-size: 28px;
-  font-weight: 900;
-  color: #0b6b68;
-}
-
-.dashboard-title p {
-  margin-top: 6px;
-  font-size: 14px;
-  color: #64748b;
-}
-
-/* GRID */
-.dashboard-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-}
-
-/* CARD */
-.dashboard-stat-card {
-  background: white;
-  padding: 22px 22px;
-  border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.05);
-  transition: 0.2s;
-  position: relative;
-  overflow: hidden;
-}
-
-/* LEFT ACCENT */
-.dashboard-stat-card::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 6px;
-  background: linear-gradient(180deg, #0b6b68, #10b981);
-}
-
-/* HOVER */
-.dashboard-stat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0px 12px 26px rgba(0, 0, 0, 0.08);
-  border-color: rgba(11, 107, 104, 0.35);
-}
-
-/* NUMBER */
-.stat-number {
-  font-size: 46px;
-  font-weight: 900;
-  color: #0b6b68;
-  margin-bottom: 6px;
-}
-
-/* LABEL */
-.stat-label {
-  font-size: 14px;
-  font-weight: 700;
-  color: #475569;
-}
-/* HEADER MODERN */
 .dashboard-header-modern {
-  background: white;
-  padding: 18px 26px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: var(--bg-soft);
+  padding: 22px 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 30px;
 
   display: flex;
   justify-content: space-between;
@@ -95,30 +54,34 @@
 .dashboard-header-left h1 {
   margin: 0;
   font-size: 28px;
-  font-weight: 900;
-  color: #0b6b68;
+  font-weight: 800;
+  color: var(--navy);
 }
 
 .dashboard-header-left p {
   margin-top: 6px;
   font-size: 14px;
-  color: #64748b;
+  color: var(--text-muted);
 }
 
-/* SEARCH */
+/* ==============================
+   SEARCH
+================================ */
+
 .dashboard-header-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .dashboard-search {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #f3f4f6;
-  padding: 10px 14px;
-  border-radius: 14px;
+  background: #eef3fb;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
 }
 
 .dashboard-search input {
@@ -126,20 +89,264 @@
   outline: none;
   background: transparent;
   font-size: 13px;
-  width: 200px;
+  width: 220px;
+  color: var(--navy);
+  font-weight: 600;
 }
 
-/* NOTIF BUTTON */
+/* ==============================
+   NOTIFICATION BUTTON
+================================ */
+
 .dashboard-notif-btn {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 14px;
   border: none;
   cursor: pointer;
-  background: #0b6b68;
+  background: var(--blue);
   color: white;
 
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.25s ease;
+}
+
+.dashboard-notif-btn:hover {
+  background: var(--navy);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ==============================
+   STATS GRID
+================================ */
+
+.dashboard-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+/* ==============================
+   STAT CARD (PREMIUM STYLE)
+================================ */
+
+.dashboard-stat-card {
+  background: var(--bg-soft);
+  padding: 26px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-sm);
+  transition: 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Accent line halus */
+.dashboard-stat-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 6px;
+  background: linear-gradient(180deg, var(--blue), var(--accent));
+}
+
+/* Hover */
+.dashboard-stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+/* NUMBER */
+.stat-number {
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+
+/* LABEL */
+.stat-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(15, 40, 84, 0.75);
+}
+
+/* ==============================
+   SIDEBAR (ELEGAN NAVY)
+================================ */
+
+.kms-sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--navy), var(--navy-dark));
+  display: flex;
+  flex-direction: column;
+  padding: 28px 20px;
+}
+
+/* HEADER */
+.kms-sidebar-header {
+  margin-bottom: 36px;
+}
+
+.kms-sidebar-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 900;
+  color: white;
+}
+
+.kms-sidebar-header span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* MENU */
+.kms-sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kms-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.kms-menu-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.kms-menu-item.active {
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight: 800;
+}
+
+/* ==============================
+   LOGOUT
+================================ */
+
+.kms-sidebar-footer {
+  margin-top: auto;
+}
+
+.kms-logout {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 12px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.kms-logout:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+/* ===============================
+   FORCE BACKGROUND FIX
+================================ */
+
+.dashboard-main {
+  background: #f8f9fa !important; /* soft grey profesional */
+  min-height: 100vh;
+  padding: 30px 36px;
+}
+
+/* kalau masih ada dashboard-page */
+.dashboard-page {
+  background: #ffffff !important;
+}
+
+/* reset warna lama */
+.dashboard-main.dashboard-page {
+  background: #ffffff !important;
+}
+.kms-sidebar {
+  position: relative;
+}
+
+.kms-sidebar::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #1c4d8d, #4988c4);
+}
+.kms-sidebar {
+  border-right: 2px solid #1c4d8d; /* biru utama */
+}
+.kms-logout {
+  width: 100%;
+  background: #f1f5f9;
+  border: 2px solid #1c4d8d; /* garis biru */
+  border-radius: 14px;
+  padding: 12px;
+  color: #1c4d8d;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.kms-logout:hover {
+  background: #1c4d8d;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+.kms-logout {
+  border: 2px solid rgba(28, 77, 141, 0.4);
+  color: #1c4d8d;
+}
+/* FORCE LOGOUT BORDER FIX */
+button.kms-logout {
+  border: 2px solid #1c4d8d !important;
+  color: #1c4d8d !important;
+  background: #ffffff !important;
+}
+
+button.kms-logout:hover {
+  background: #1c4d8d !important;
+  color: #ffffff !important;
+}
+.dashboard-header-modern {
+  background: #ffffff !important;
+  border: 2px solid #1c4d8d;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(15, 40, 84, 0.06);
+}
+.dashboard-stat-card {
+  background: #ffffff !important;
+  border: 2px solid #1c4d8d;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(15, 40, 84, 0.06);
+}
+.dashboard-stat-card::before {
+  display: none !important;
 }

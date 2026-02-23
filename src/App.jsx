@@ -12,13 +12,24 @@ import ManageUsers from "./pages/ManageUsers";
 import PublicDashboard from "./pages/PublicDashboard";
 import PublicKnowledgeDetail from "./pages/PublicKnowledgeDetail";
 import Unauthorized from "./pages/Unauthorized";
+import AboutDetail from "./pages/AboutDetail";
+import SaaS from "./pages/business/SaaS";
+import Hardware from "./pages/business/Hardware";
+import Consulting from "./pages/business/Consulting";
+import LatestUpdates from "./pages/LatestUpdates";
 
 // Protected Route
 import ProtectedRoute from "./auth/ProtectedRoute";
 
+// Chatbot FAQ
+import FAQChatbot from "./components/FAQChatbot";
+
 function App() {
   return (
     <Router>
+      {/* Chatbot akan muncul di semua halaman */}
+      <FAQChatbot />
+
       <Routes>
         {/* Landing */}
         <Route path="/" element={<PublicDashboard />} />
@@ -33,6 +44,14 @@ function App() {
         {/* Auth */}
         <Route path="/login" element={<Login />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
+
+        {/* Other Pages */}
+        <Route path="/about-detail" element={<AboutDetail />} />
+        <Route path="/business/saas" element={<SaaS />} />
+        <Route path="/business/hardware" element={<Hardware />} />
+        <Route path="/business/consulting" element={<Consulting />} />
+        <Route path="/latest-updates" element={<LatestUpdates />} />
+        <Route path="/knowledge/:id" element={<PublicKnowledgeDetail />} />
 
         {/* Protected Dashboard (admin + superadmin) */}
         <Route
@@ -71,7 +90,7 @@ function App() {
           }
         />
 
-        {/* ONLY SUPERADMIN */}
+        {/* SUPERADMIN */}
         <Route
           path="/manage-users"
           element={

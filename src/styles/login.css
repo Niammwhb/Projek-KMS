@@ -2,17 +2,21 @@
   --bg-page: #f6f9fa;
   --card-bg: #ffffff;
 
-  --accent: #0b6b68;
-  --accent-hover: #085c59;
+  /* PALET WARNA BIRU */
+  --accent: #1c4d8d;
+  --accent-hover: #0f2854;
+  --accent-soft: rgba(28, 77, 141, 0.12);
 
-  --text: #111827;
-  --text-soft: #6b7280;
+  --text: #0f172a;
+  --text-soft: #475569;
 
-  --border: #dbe2e8;
-  --border-focus: rgba(11, 107, 104, 0.5);
+  --border: rgba(15, 40, 84, 0.18);
+  --border-focus: rgba(28, 77, 141, 0.55);
 
-  --input-bg: #f8fafc;
-  --icon-bg: rgba(11, 107, 104, 0.08);
+  --input-bg: rgba(189, 232, 245, 0.35);
+  --icon-bg: rgba(73, 136, 196, 0.12);
+
+  --shadow-soft: 0px 18px 50px rgba(15, 40, 84, 0.14);
 }
 
 /* PAGE */
@@ -24,7 +28,7 @@
   font-family: "Poppins", sans-serif;
   padding: 20px;
 
-  background: radial-gradient(circle at top, #ffffff, #edf3f3);
+  background: radial-gradient(circle at top, #ffffff, rgb(255, 255, 255));
 }
 
 /* CARD */
@@ -35,16 +39,15 @@
 
   background: var(--card-bg);
   border-radius: 20px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(15, 40, 84, 0.15);
 
   position: relative;
   overflow: visible;
 
-  /* shadow hitam soft */
-  box-shadow: 0px 25px 60px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-soft);
 }
 
-/* GLOW HIJAU DI BAWAH CARD */
+/* GLOW BIRU DI BAWAH CARD */
 .login-card::after {
   content: "";
   position: absolute;
@@ -55,8 +58,8 @@
   width: 85%;
   height: 80px;
 
-  background: rgba(11, 107, 104, 0.55);
-  filter: blur(38px);
+  background: rgba(28, 77, 141, 0.55);
+  filter: blur(40px);
   border-radius: 50%;
 
   z-index: -1;
@@ -71,7 +74,7 @@
 .login-header h2 {
   margin: 0;
   font-size: 34px;
-  font-weight: 800;
+  font-weight: 900;
   color: var(--accent);
   letter-spacing: 0.3px;
 }
@@ -79,7 +82,7 @@
 .login-header p {
   margin-top: 8px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-soft);
 }
 
@@ -96,8 +99,8 @@
   display: block;
   margin-bottom: 8px;
   font-size: 13px;
-  font-weight: 700;
-  color: #374151;
+  font-weight: 800;
+  color: #1e293b;
 }
 
 /* INPUT WRAPPER */
@@ -110,20 +113,19 @@
   border-radius: 14px;
   overflow: hidden;
 
-  background: var(--input-bg);
-  border: 1.5px solid var(--border);
+  background: #ffffff;
+  border: 2px solid rgba(28, 77, 141, 0.35);
 
   transition: all 0.25s ease;
 }
 
 .input-wrapper:hover {
-  border-color: #cbd5e1;
+  border-color: rgba(28, 77, 141, 0.55);
 }
 
 .input-wrapper:focus-within {
-  background: #ffffff;
-  border-color: var(--accent);
-  box-shadow: 0px 0px 0px 4px rgba(11, 107, 104, 0.15);
+  border-color: #1c4d8d;
+  box-shadow: 0px 0px 0px 4px rgba(189, 232, 245, 0.65);
 }
 
 /* ICON */
@@ -134,9 +136,11 @@
   justify-content: center;
   align-items: center;
 
-  background: var(--icon-bg);
-  color: var(--accent);
+  background: #ffffff;
+  color: #1c4d8d;
   font-size: 18px;
+
+  border-right: 2px solid rgba(28, 77, 141, 0.18);
 }
 
 /* INPUT */
@@ -156,8 +160,8 @@
 }
 
 .input-wrapper input::placeholder {
-  color: #9ca3af;
-  font-weight: 500;
+  color: rgba(15, 40, 84, 0.45);
+  font-weight: 600;
 }
 
 /* TOGGLE PASSWORD */
@@ -179,7 +183,7 @@
 }
 
 .toggle-password:hover {
-  background: rgba(11, 107, 104, 0.15) !important;
+  background: rgba(73, 136, 196, 0.22) !important;
 }
 
 /* AUTOFILL FIX */
@@ -202,13 +206,14 @@
 
 .forgot-password {
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--accent);
   cursor: pointer;
 }
 
 .forgot-password:hover {
   text-decoration: underline;
+  color: var(--accent-hover);
 }
 
 /* BUTTONS */
@@ -226,20 +231,22 @@
   border: none !important;
   border-radius: 14px !important;
 
-  background: var(--accent) !important;
+  background: linear-gradient(135deg, #1c4d8d, #0f2854) !important;
   color: #ffffff !important;
 
   font-size: 14px !important;
-  font-weight: 800 !important;
+  font-weight: 900 !important;
 
   cursor: pointer !important;
   transition: all 0.25s ease !important;
+
+  box-shadow: 0px 18px 35px rgba(28, 77, 141, 0.25);
 }
 
 .btn-login:hover {
-  background: var(--accent-hover) !important;
   transform: translateY(-2px);
-  box-shadow: 0px 16px 28px rgba(11, 107, 104, 0.25);
+  box-shadow: 0px 22px 45px rgba(15, 40, 84, 0.35);
+  opacity: 0.95;
 }
 
 .btn-login:active {
@@ -252,13 +259,13 @@
   height: 52px;
 
   border-radius: 14px;
-  border: 1.5px solid var(--border);
+  border: 1.5px solid rgba(15, 40, 84, 0.18);
 
   background: #ffffff;
-  color: #111827;
+  color: #0f172a;
 
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
 
   display: flex;
   justify-content: center;
@@ -275,10 +282,10 @@
 }
 
 .btn-google:hover {
-  border-color: var(--accent);
-  background: rgba(11, 107, 104, 0.05);
+  border-color: rgba(28, 77, 141, 0.45);
+  background: rgba(189, 232, 245, 0.3);
   transform: translateY(-2px);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 14px 28px rgba(15, 40, 84, 0.12);
 }
 
 /* INFO */
@@ -286,12 +293,13 @@
   margin-top: 22px;
   text-align: center;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-soft);
 }
 
 .login-info b {
   color: var(--accent);
+  font-weight: 900;
 }
 
 /* RESPONSIVE */
@@ -303,4 +311,148 @@
   .login-actions {
     flex-direction: column;
   }
+}
+/* ===============================
+   FORCE OVERRIDE HIJAU -> BIRU
+================================ */
+
+/* Judul utama */
+.login-header h2 {
+  color: #1c4d8d !important;
+}
+
+/* Subtitle */
+.login-header p {
+  color: #475569 !important;
+}
+
+/* Label */
+.form-group label {
+  color: #0f2854 !important;
+}
+
+/* Icon kiri input */
+.input-icon {
+  color: #1c4d8d !important;
+  background: rgba(73, 136, 196, 0.12) !important;
+}
+
+/* Toggle password icon */
+.toggle-password {
+  color: #1c4d8d !important;
+  background: rgba(73, 136, 196, 0.12) !important;
+}
+
+.toggle-password:hover {
+  background: rgba(73, 136, 196, 0.22) !important;
+}
+
+/* Link lupa password */
+.forgot-password {
+  color: #1c4d8d !important;
+}
+
+.forgot-password:hover {
+  color: #0f2854 !important;
+}
+
+/* Input focus border */
+.input-wrapper:focus-within {
+  border-color: #1c4d8d !important;
+  box-shadow: 0px 0px 0px 4px rgba(28, 77, 141, 0.18) !important;
+}
+
+/* Login button */
+.btn-login {
+  background: linear-gradient(135deg, #1c4d8d, #0f2854) !important;
+}
+
+/* Google button hover */
+.btn-google:hover {
+  border-color: rgba(28, 77, 141, 0.45) !important;
+  background: rgba(189, 232, 245, 0.35) !important;
+}
+
+/* Text info bawah */
+.login-info b {
+  color: #1c4d8d !important;
+}
+/* ===============================
+   FORCE WHITE INPUT + BLUE BORDER
+================================ */
+
+.input-wrapper {
+  background: #ffffff !important;
+  border: 2px solid rgba(28, 77, 141, 0.45) !important;
+}
+
+.input-wrapper:hover {
+  border-color: rgba(28, 77, 141, 0.7) !important;
+}
+
+.input-wrapper:focus-within {
+  background: #ffffff !important;
+  border-color: #1c4d8d !important;
+  box-shadow: 0px 0px 0px 4px rgba(189, 232, 245, 0.65) !important;
+}
+
+/* icon kiri input */
+.input-icon {
+  background: #ffffff !important;
+  color: #1c4d8d !important;
+  border-right: 2px solid rgba(28, 77, 141, 0.18) !important;
+}
+
+/* toggle eye */
+.toggle-password {
+  background: #ffffff !important;
+  color: #1c4d8d !important;
+  border-left: 2px solid rgba(28, 77, 141, 0.18) !important;
+}
+
+.toggle-password:hover {
+  background: rgba(189, 232, 245, 0.4) !important;
+}
+
+/* input field */
+.input-wrapper input {
+  background: transparent !important;
+  color: #0f2854 !important;
+}
+/* ===============================
+   FIX INPUT PUTIH TOTAL (NO BLUE)
+================================ */
+
+.input-wrapper {
+  background: #ffffff !important;
+}
+
+.input-wrapper input {
+  background: #ffffff !important;
+  color: #0f2854 !important;
+  -webkit-text-fill-color: #0f2854 !important;
+}
+
+/* Autofill Chrome */
+.input-wrapper input:-webkit-autofill,
+.input-wrapper input:-webkit-autofill:hover,
+.input-wrapper input:-webkit-autofill:focus,
+.input-wrapper input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+  -webkit-text-fill-color: #0f2854 !important;
+}
+.btn-google:hover {
+  border-color: rgba(28, 77, 141, 0.7) !important;
+  background: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08);
+}
+/* FIX ICON MATA */
+.toggle-password {
+  background: #ffffff !important;
+  border-left: none !important;
+}
+
+.toggle-password:hover {
+  background: #ffffff !important;
 }

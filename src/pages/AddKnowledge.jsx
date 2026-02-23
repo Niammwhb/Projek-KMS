@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useKnowledge } from "../knowledge/KnowledgeContext";
 import KnowledgeEditor from "../components/KnowledgeEditor";
-import { ArrowLeft, Eye, Send } from "lucide-react";
+import { ArrowLeft, Eye, Send, Save } from "lucide-react";
 import "../styles/editor.css";
 
 export default function AddKnowledge() {
@@ -19,6 +19,74 @@ export default function AddKnowledge() {
 
   const [isPreview, setIsPreview] = useState(false);
 
+  // ===============================
+  // THUMBNAIL
+  // ===============================
+  const [thumbnail, setThumbnail] = useState(null);
+  const fileInputRef = useRef(null);
+
+  useEffect(() => {
+    const savedThumb = localStorage.getItem("knowledge_thumbnail");
+    if (savedThumb) {
+      setThumbnail(savedThumb);
+    }
+  }, []);
+
+  const handleThumbnailUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      alert("File harus berupa gambar!");
+      return;
+    }
+
+    const maxSize = 500 * 1024;
+    if (file.size > maxSize) {
+      alert("Ukuran file terlalu besar! Maksimal 500KB.");
+      return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      try {
+        localStorage.setItem("knowledge_thumbnail", reader.result);
+        setThumbnail(reader.result);
+      } catch (err) {
+        alert("Gagal menyimpan thumbnail! Storage penuh.");
+        console.error(err);
+      }
+    };
+
+    reader.readAsDataURL(file);
+    e.target.value = "";
+  };
+
+  const handleRemoveThumbnail = () => {
+    localStorage.removeItem("knowledge_thumbnail");
+    setThumbnail(null);
+  };
+
+  const handleDraft = () => {
+    if (!title.trim()) {
+      alert("Judul wajib diisi");
+      return;
+    }
+
+    addKnowledge({
+      title,
+      content,
+      category,
+      status: "draft",
+      thumbnail: thumbnail || null,
+      createdAt: new Date().toISOString(),
+    });
+
+    localStorage.removeItem("knowledge_thumbnail");
+    navigate("/knowledge");
+  };
+
   const handlePublish = () => {
     if (!title.trim()) {
       alert("Judul wajib diisi");
@@ -30,12 +98,14 @@ export default function AddKnowledge() {
       content,
       category,
       status: "published",
+      thumbnail: thumbnail || null,
       createdAt:
         publishMode === "schedule"
           ? new Date(`${publishDate}T${publishTime}`).toISOString()
           : new Date().toISOString(),
     });
 
+    localStorage.removeItem("knowledge_thumbnail");
     navigate("/knowledge");
   };
 
@@ -46,26 +116,6 @@ export default function AddKnowledge() {
         <button className="btn-back-modern" onClick={() => navigate(-1)}>
           <ArrowLeft size={18} />
         </button>
-
-        <div className="header-actions">
-          <button
-            className="btn-preview-modern"
-            onClick={() => setIsPreview(!isPreview)}
-            type="button"
-          >
-            <Eye size={16} />
-            <span>{isPreview ? "Tutup" : "Pratinjau"}</span>
-          </button>
-
-          <button
-            className="btn-publish-modern"
-            onClick={handlePublish}
-            type="button"
-          >
-            <Send size={16} />
-            <span>Publikasikan</span>
-          </button>
-        </div>
       </div>
 
       {/* BODY */}
@@ -156,6 +206,76 @@ export default function AddKnowledge() {
 
         {/* SIDEBAR */}
         <div className="editor-sidebar">
+          {/* ACTION CARD */}
+          <div className="action-card">
+            <h4 className="action-title">Aksi</h4>
+
+            <div className="action-buttons">
+              <button
+                className="btn-eye"
+                type="button"
+                title="Preview"
+                onClick={() => setIsPreview(!isPreview)}
+              >
+                <Eye size={18} />
+              </button>
+
+              <button className="btn-draft" type="button" onClick={handleDraft}>
+                <Save size={16} />
+                Draft
+              </button>
+
+              <button
+                className="btn-publish"
+                type="button"
+                onClick={handlePublish}
+              >
+                <Send size={16} />
+                Publish
+              </button>
+            </div>
+          </div>
+
+          {/* THUMBNAIL MENU */}
+          <div className="thumbnail-card">
+            <h4 className="thumbnail-title">Thumbnail</h4>
+
+            <div className="thumbnail-preview">
+              {thumbnail ? (
+                <img src={thumbnail} alt="thumbnail" />
+              ) : (
+                <p className="thumbnail-empty">Belum ada thumbnail</p>
+              )}
+            </div>
+
+            <button
+              type="button"
+              className="thumbnail-upload-btn"
+              onClick={() => fileInputRef.current.click()}
+            >
+              Upload Thumbnail
+            </button>
+
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handleThumbnailUpload}
+              style={{ display: "none" }}
+            />
+
+            {thumbnail && (
+              <button
+                className="thumbnail-remove-btn"
+                type="button"
+                onClick={handleRemoveThumbnail}
+              >
+                Hapus Thumbnail
+              </button>
+            )}
+          </div>
+
+          {/* SETTINGS */}
           <h4 className="sidebar-title">Setelan Posting</h4>
 
           <div className="sidebar-group">

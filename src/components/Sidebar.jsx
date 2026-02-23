@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { LayoutDashboard, BookOpen, Users, LogOut } from "lucide-react";
 import { useAuth } from "../auth/AuthContext";
-
+import logo from "../assets/logo.png";
 import "../styles/sidebar.css";
 
 export default function Sidebar() {
@@ -17,8 +17,9 @@ export default function Sidebar() {
     <aside className="kms-sidebar">
       {/* LOGO */}
       <div className="kms-sidebar-header">
-        <h2>KMS</h2>
-        <span>ReadyMix</span>
+        <div className="sidebar-brand">
+          <img src={logo} alt="RBS Logo" />
+        </div>
       </div>
 
       {/* MENU */}
