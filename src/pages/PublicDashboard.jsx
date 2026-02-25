@@ -31,6 +31,8 @@ import saasImg from "../assets/saas.jpg";
 import hardwareImg from "../assets/hardware.jpg";
 import consultingImg from "../assets/consulting.jpg";
 import truckImg from "../assets/truck-rbs.png";
+import FAQChatbot from "../components/FAQChatbot";
+import FullVideo from "./FullVideo";
 
 export default function PublicDashboard() {
   const { knowledgeList } = useKnowledge();
@@ -44,6 +46,7 @@ export default function PublicDashboard() {
   const publishedList = knowledgeList.filter(
     (item) => item.status?.toLowerCase() === "published"
   );
+  const [showVideo, setShowVideo] = useState(false);
 
   /* ================= HEADER SCROLL EFFECT ================= */
   useEffect(() => {
@@ -73,29 +76,29 @@ export default function PublicDashboard() {
 
   const highlightData = [
     {
-      title: "The story talling of us 2025",
-      desc: "At PETRONAS, every achievement is shaped by the people who give their best, year after year. We honour our long-serving colleagues and retirees for the time, effort, and experience they have shared with us. Thank you for helping build the journey we continue today.",
+      title: "The story telling of us 2025",
+      desc: "Readymix is......",
       linkText: "Watch full video",
-      linkUrl: "#",
+      linkUrl: "/watch-video",
       img: highlight1,
     },
     {
       title: "Legacy Beneath the Waves",
-      desc: "PETRONAS is dedicated to preserving marine ecosystems through pioneering initiatives such as Rigs-to-Reef and Tubular-to-Reef, which repurpose decommissioned offshore structures into flourishing artificial reefs.",
+      desc: "Readymix .....",
       linkText: "Read more",
       linkUrl: "#",
       img: highlight2,
     },
     {
       title: "The Spirit of Gresik",
-      desc: "Explore how our people and communities continue shaping progress together, driving sustainable development and long-term impact for future generations.",
+      desc: "Readymix .....",
       linkText: "Read more",
       linkUrl: "#",
       img: highlight3,
     },
     {
       title: "Meet Our Women Trailblazers in Technology",
-      desc: "Celebrating women leading transformation and innovation in the industry. Learn how they shape future technologies and inspire the next generation.",
+      desc: "Readymix .....",
       linkText: "Read more",
       linkUrl: "#",
       img: highlight4,
@@ -104,7 +107,7 @@ export default function PublicDashboard() {
 
   return (
     <div className="public-wrapper">
-      {/* ================= HEADER ================= */}
+      <FAQChatbot />;{/* ================= HEADER ================= */}
       <header className={`public-header ${scrolled ? "scrolled" : ""}`}>
         <div className="public-header-container">
           {/* LOGO + TEXT */}
@@ -152,16 +155,8 @@ export default function PublicDashboard() {
           </nav>
         </div>
       </header>
-
       {/* ================= HERO ABOUT ================= */}
       <section className="public-about-hero">
-        <div
-          className="hero-bg"
-          style={{ backgroundImage: `url(${heroImg})` }}
-        ></div>
-
-        <div className="hero-gradient"></div>
-
         <div className="public-about-content">
           <h1 className="public-about-title">
             <span className="title-main">Readymix Business Solution</span>
@@ -184,169 +179,84 @@ export default function PublicDashboard() {
 
         <img src={truckImg} alt="Truck RBS" className="hero-truck" />
       </section>
-      {/* ================= HERO BOTTOM ================= */}
-      <section className="public-hero-bottom">
-        <div className="hero-bottom-container">
-          <div className="hero-bottom-left">
-            <h2 className="hero-bottom-title">
-              We help to <span>optimize</span> production
-            </h2>
-
-            <p className="hero-bottom-desc">
-              Maksimalkan potensi bisnis Readymix dengan kontrol monitoring dan
-              operasional yang terintegrasi.
-            </p>
-
-            <div className="hero-bottom-features">
-              <div className="feature-item">
-                <FaCheckCircle className="feature-icon" />
-                <span>Realtime</span>
-              </div>
-
-              <div className="feature-divider">|</div>
-
-              <div className="feature-item">
-                <GiGearStickPattern className="feature-icon" />
-                <span>Integrated</span>
-              </div>
-
-              <div className="feature-divider">|</div>
-
-              <div className="feature-item">
-                <FaMobileAlt className="feature-icon" />
-                <span>Mobile Friendly</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="products-section">
-        <div className="container">
-          <h2 className="section-title">
-            Produk dan Layanan untuk bisnis readymix Anda
+      <section className="products-section-modern">
+        <div className="products-container">
+          <h2 className="products-title">
+            <span className="title-main">Produk dan Layanan</span>
+            <br />
+            <span className="title-sub">
+              untuk bisnis <span className="highlight-word">readymix</span> Anda
+            </span>
           </h2>
 
-          {/* SaaS */}
-          <div className="product-row">
-            <div className="product-image">
-              <div className="flip-card">
-                <div className="flip-card-inner">
-                  <div className="flip-card-front">
-                    <img src={saasImg} alt="SaaS" />
-                  </div>
+          <div className="products-grid">
+            {/* CARD 1 */}
+            <div className="product-card">
+              <div className="product-image-wrapper">
+                <img src={saasImg} alt="SaaS" />
+              </div>
 
-                  <div className="flip-card-back">
-                    <img src={logoImg} alt="RBS Logo" />
-                    <span>READYMIX BUSINESS SOLUTION</span>
-                  </div>
-                </div>
+              <div className="product-content">
+                <h3>Software as a Service</h3>
+                <p>
+                  Solusi digital untuk memaksimalkan operasional dan manajemen
+                  bisnis readymix Anda.
+                </p>
+                <button
+                  className="product-link"
+                  onClick={() => navigate("/business/saas")}
+                >
+                  Read More <FaArrowRight />
+                </button>
               </div>
             </div>
 
-            <div className="product-content">
-              <h2 className="section-title-large">
-                SaaS (Software as a Service)
-              </h2>
-
-              <p>
-                Solusi digital untuk memaksimalkan operasional dan manajemen
-                bisnis readymix Anda.
-              </p>
-
-              <ul>
-                <li>Manajemen produksi</li>
-                <li>Dashboard real-time</li>
-                <li>Monitoring distribusi</li>
-              </ul>
-              <button
-                className="product-readmore-btn"
-                onClick={() => navigate("/business/saas")}
-              >
-                Read More <FaArrowRight />
-              </button>
-            </div>
-          </div>
-
-          {/* Hardware */}
-          <div className="product-row reverse">
-            <div className="product-image">
-              <div className="flip-card">
-                <div className="flip-card-inner">
-                  {/* FRONT */}
-                  <div className="flip-card-front">
-                    <img src={hardwareImg} alt="Hardware" />
-                  </div>
-
-                  {/* BACK */}
-                  <div className="flip-card-back">
-                    <img src={logoImg} alt="RBS Logo" />
-                    <span>READYMIX BUSINESS SOLUTION</span>
-                  </div>
-                </div>
+            {/* CARD 2 */}
+            <div className="product-card">
+              <div className="product-image-wrapper">
+                <img src={hardwareImg} alt="Hardware" />
               </div>
-            </div>
-            <div className="product-content">
-              <h2 className="section-title-large">Hardware</h2>
-              <p>
-                Sistem automasi berbasis PLC untuk meningkatkan efisiensi
-                produksi.
-              </p>
 
-              <ul>
-                <li>Integrasi batching plant</li>
-                <li>Sensor monitoring</li>
-                <li>Support teknis</li>
-              </ul>
-              <button
-                className="product-readmore-btn"
-                onClick={() => navigate("/business/saas")}
-              >
-                Read More <FaArrowRight />
-              </button>
-            </div>
-          </div>
+              <div className="product-content">
+                <h3>Hardware</h3>
+                <p>
+                  Perangkat terintegrasi untuk meningkatkan efisiensi dan
+                  akurasi produksi readymix.
+                </p>
 
-          {/* Consulting */}
-          <div className="product-row">
-            <div className="product-image">
-              <div className="flip-card">
-                <div className="flip-card-inner">
-                  <div className="flip-card-front">
-                    <img src={consultingImg} alt="Consulting" />
-                  </div>
-
-                  <div className="flip-card-back">
-                    <img src={logoImg} alt="RBS Logo" />
-                    <span>READYMIX BUSINESS SOLUTION</span>
-                  </div>
-                </div>
+                <button
+                  className="product-link"
+                  onClick={() => navigate("/business/hardware")}
+                >
+                  Read More <FaArrowRight />
+                </button>
               </div>
             </div>
 
-            <div className="product-content">
-              <h2 className="section-title-large">Consulting</h2>
-              <p>
-                Konsultasi strategis untuk pengembangan bisnis dan efisiensi
-                operasional.
-              </p>
+            {/* CARD 3 */}
+            <div className="product-card">
+              <div className="product-image-wrapper">
+                <img src={consultingImg} alt="Consulting" />
+              </div>
 
-              <ul>
-                <li>Audit sistem produksi</li>
-                <li>Optimasi workflow</li>
-                <li>Training SDM</li>
-              </ul>
-              <button
-                className="product-readmore-btn"
-                onClick={() => navigate("/business/saas")}
-              >
-                Read More <FaArrowRight />
-              </button>
+              <div className="product-content">
+                <h3>Consulting</h3>
+                <p>
+                  Solusi dalam perencanaan dan pengembangan bisnis readymix
+                  perusahaan Anda.
+                </p>
+
+                <button
+                  className="product-link"
+                  onClick={() => navigate("/business/consulting")}
+                >
+                  Read More <FaArrowRight />
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </section>
-
       {/* ================= INVEST SECTION ================= */}
       <section className="rbs-invest-section">
         <div className="rbs-invest-container">
@@ -395,7 +305,6 @@ export default function PublicDashboard() {
           </div>
         </div>
       </section>
-
       {/* ================= LATEST UPDATES SECTION ================= */}
       <section
         className="petronas-updates-section"
@@ -473,7 +382,6 @@ export default function PublicDashboard() {
           </div>
         </div>
       </section>
-
       {/* ================= HIGHLIGHTS SECTION ================= */}
       <section className="petronas-highlights-section">
         <div className="petronas-highlights-container">
@@ -523,15 +431,16 @@ export default function PublicDashboard() {
                       <div className="petronas-highlight-body">
                         <p className="petronas-highlight-desc">{item.desc}</p>
 
-                        <a
-                          href={item.linkUrl}
+                        <button
                           className="petronas-highlight-readmore"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setShowVideo(true);
+                          }}
                         >
-                          <span className="petronas-highlight-readmore-icon">
-                            <FaArrowRight />
-                          </span>
-                          {item.linkText}
-                        </a>
+                          <FaArrowRight />
+                          <span>Watch full video</span>
+                        </button>
                       </div>
                     )}
 
@@ -543,7 +452,6 @@ export default function PublicDashboard() {
           </div>
         </div>
       </section>
-
       {/* ================= FOOTER ================= */}
       <footer className="public-footer-modern">
         <div className="footer-top-info">

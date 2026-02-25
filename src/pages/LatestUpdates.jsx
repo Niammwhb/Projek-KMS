@@ -17,9 +17,11 @@ export default function LatestUpdates() {
   const [year, setYear] = useState("Year");
   const [language, setLanguage] = useState("English");
 
-  const publishedList = knowledgeList.filter(
-    (item) => item.status?.toLowerCase() === "published"
-  );
+  const publishedList = knowledgeList.filter((item) => {
+    const status = item.status?.toLowerCase();
+
+    return status === "published" || status === "Dipublikasikan";
+  });
 
   const featuredNews = publishedList.length > 0 ? publishedList[0] : null;
 

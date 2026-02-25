@@ -1,35 +1,25 @@
-import React from "react";
-import "../styles/public.css";
-
-import aboutHero from "../assets/about-hero.jpg";
-
-export default function AboutDetail() {
+export default function CTASection() {
   return (
-    <div className="public-about-page">
-      {/* HERO SECTION */}
-      <section
-        className="public-about-hero"
-        style={{ backgroundImage: `url(${aboutHero})` }}
-      >
-        <div className="public-about-hero-overlay"></div>
-        <div className="public-about-hero-dots"></div>
+    <section className="rbs-cta-modern">
+      <div className="blur-circle blur-1"></div>
+      <div className="blur-circle blur-2"></div>
 
-        <div className="public-about-hero-content">
-          <p className="public-about-hero-tag">About Us</p>
+      <div className="rbs-cta-modern-content">
+        <h1 className="fade-up delay-2">
+          SIAP MEMAKSIMALKAN
+          <br />
+          <span>Bisnis Readymix Anda?</span>
+        </h1>
 
-          <h1 className="public-about-hero-title">
-            About <br /> Company
-          </h1>
+        <p className="cta-desc fade-up delay-3">
+          Hubungi kami sekarang untuk konsultasi dan layanan terbaik untuk
+          meningkatkan performa bisnis ready mix Anda.
+        </p>
 
-          <p className="public-about-hero-desc">
-            Profil singkat perusahaan dan sistem terintegrasi Readymix Business
-            Solution. Kami membangun solusi digital untuk meningkatkan
-            produktivitas industri konstruksi.
-          </p>
-
-          <button className="public-about-hero-btn">Explore More</button>
-        </div>
-      </section>
-    </div>
+        <button className="cta-modern-btn fade-up delay-4">
+          Hubungi Kami →
+        </button>
+      </div>
+    </section>
   );
 }

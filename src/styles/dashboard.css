@@ -350,3 +350,17 @@ button.kms-logout:hover {
 .dashboard-stat-card::before {
   display: none !important;
 }
+.dashboard-layout {
+  display: flex;
+}
+
+.dashboard-main {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.kms-sidebar {
+  position: relative; /* kalau sebelumnya fixed */
+  z-index: 2;
+}

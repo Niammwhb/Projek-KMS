@@ -17,19 +17,15 @@ import SaaS from "./pages/business/SaaS";
 import Hardware from "./pages/business/Hardware";
 import Consulting from "./pages/business/Consulting";
 import LatestUpdates from "./pages/LatestUpdates";
+import FullVideo from "./pages/FullVideo";
 
 // Protected Route
 import ProtectedRoute from "./auth/ProtectedRoute";
-
-// Chatbot FAQ
 import FAQChatbot from "./components/FAQChatbot";
 
 function App() {
   return (
     <Router>
-      {/* Chatbot akan muncul di semua halaman */}
-      <FAQChatbot />
-
       <Routes>
         {/* Landing */}
         <Route path="/" element={<PublicDashboard />} />
@@ -52,7 +48,8 @@ function App() {
         <Route path="/business/consulting" element={<Consulting />} />
         <Route path="/latest-updates" element={<LatestUpdates />} />
         <Route path="/knowledge/:id" element={<PublicKnowledgeDetail />} />
-
+        <Route path="/watch-video" element={<FullVideo />} />
+        <Route path="dashboard" element={<Dashboard />} />
         {/* Protected Dashboard (admin + superadmin) */}
         <Route
           path="/dashboard"

@@ -1,0 +1,282 @@
+/* ===================================================
+   IMPORT FONT
+=================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+/* ===================================================
+   GLOBAL RESET SECTION STYLE
+=================================================== */
+section {
+  width: 100%;
+  position: relative;
+}
+
+/* ===================================================
+   HERO SECTION
+=================================================== */
+
+.public-hero-bottom {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 140px 20px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+
+  background: linear-gradient(180deg, #f4f9ff 0%, #eaf3fb 100%);
+}
+
+.hero-bottom-container {
+  max-width: 900px;
+  width: 100%;
+}
+
+.hero-bottom-title {
+  font-size: 52px;
+  font-weight: 700;
+  color: #0f2854;
+  line-height: 1.2;
+  margin-bottom: 28px;
+}
+
+.highlight-word {
+  color: #1c4d8d;
+  font-weight: 800;
+}
+
+.hero-bottom-desc {
+  font-size: 18px;
+  color: #5f6f86;
+  line-height: 1.8;
+  max-width: 720px;
+  margin: 0 auto 40px auto;
+}
+
+/* HERO FEATURES */
+
+.hero-bottom-features {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1c4d8d;
+}
+
+.feature-icon {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+  color: #1c4d8d;
+}
+
+.feature-divider {
+  width: 1px;
+  height: 20px;
+  background: #d6e2f1;
+}
+
+/* ===================================================
+   CONSULT SECTION
+=================================================== */
+
+.rbs-consult-section {
+  background: #f5f8fd;
+  padding: 140px 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.rbs-consult-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 80px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 100px;
+  align-items: start;
+}
+
+/* LEFT SIDE */
+
+.rbs-consult-subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1c4d8d;
+  margin-bottom: 20px;
+}
+
+.rbs-consult-left h2 {
+  font-size: 40px;
+  font-weight: 800;
+  color: #0f2854;
+  line-height: 1.3;
+  margin-bottom: 30px;
+}
+
+.rbs-consult-desc {
+  font-size: 17px;
+  line-height: 1.9;
+  color: #5b6b80;
+}
+
+/* RIGHT SIDE STATS */
+
+.rbs-consult-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 80px 100px;
+}
+
+.rbs-stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.rbs-stat-icon {
+  width: 34px;
+  height: 34px;
+  color: #1c4d8d;
+  margin-bottom: 14px;
+}
+
+.rbs-stat-box h3 {
+  font-size: 34px;
+  font-weight: 800;
+  color: #0f2854;
+  margin-bottom: 10px;
+}
+
+.rbs-stat-box p {
+  font-size: 15px;
+  color: #6b7c93;
+  line-height: 1.7;
+  max-width: 260px;
+}
+
+/* ===================================================
+   DEMO SECTION - SAME AS LANDING PAGE
+=================================================== */
+
+.rbs-demo-section {
+  background: linear-gradient(180deg, #f4f9ff 0%, #eaf3fb 100%);
+  padding: 140px 20px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.rbs-demo-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.rbs-demo-content h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #0f2854; /* navy utama */
+  margin-bottom: 28px;
+}
+
+.rbs-demo-content p {
+  font-size: 18px;
+  color: #5f6f86;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.rbs-demo-btn {
+  background: #1c4d8d;
+  color: #ffffff;
+  padding: 14px 40px;
+  border-radius: 50px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.rbs-demo-btn:hover {
+  background: #4988c4;
+  transform: translateY(-3px);
+}
+/* ===================================================
+   RESPONSIVE
+=================================================== */
+
+@media (max-width: 1200px) {
+  .rbs-consult-wrapper {
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .public-hero-bottom {
+    padding: 100px 20px;
+  }
+
+  .hero-bottom-title {
+    font-size: 36px;
+  }
+
+  .hero-bottom-desc {
+    font-size: 16px;
+  }
+
+  .rbs-consult-wrapper {
+    padding: 0 30px;
+  }
+
+  .rbs-consult-left h2 {
+    font-size: 30px;
+  }
+
+  .rbs-consult-right {
+    grid-template-columns: 1fr;
+  }
+
+  .rbs-demo-content h2 {
+    font-size: 28px;
+  }
+
+  .rbs-demo-content p {
+    font-size: 15px;
+  }
+}
+.rbs-demo-section {
+  background: linear-gradient(135deg, #3b6fcf #5f9cff 100%);
+}
+/* ==========================================
+   HERO ENTRANCE ANIMATION
+========================================== */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUpSmooth 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+.delay-2 {
+  animation-delay: 0.4s;
+}
+.delay-3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeUpSmooth {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
